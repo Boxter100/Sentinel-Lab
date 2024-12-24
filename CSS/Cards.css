@@ -1,0 +1,123 @@
+
+/* Contenedor principal que envuelve las tarjetas */
+.container {
+  display: flex;
+  justify-content: center; /* Centra las tarjetas horizontalmente */
+  align-items: center; /* Alinea las tarjetas verticalmente en el centro */
+  flex-direction: column; /* Coloca las tarjetas una encima de la otra */
+  gap: 20px; /* Espacio entre las tarjetas */
+  height: 100vh; /* Asegura que el contenedor tenga altura completa para centrar las tarjetas */
+  padding: 20px; /* Agrega un poco de espacio alrededor del contenedor */
+  box-sizing: border-box; /* Incluye padding en el cálculo del ancho */
+}
+
+/* Tu estilo de tarjeta original */
+section.card {
+  position: relative;
+  width: 350px;
+  height: 200px;
+  background-color: #474dc3;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  perspective: 1000px;
+  transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer; /* Indicamos que la tarjeta es clickeable */
+}
+
+.card.active {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px #000000;
+  background-color: #474dc3;
+  color: #ffffff;
+}
+
+.card__content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #474dc3;
+  transform: rotateX(-90deg);
+  transform-origin: bottom;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card.active .card__content {
+  transform: rotateX(0deg);
+}
+
+.card__title {
+  margin: 0;
+  padding-left: 5px;
+  font-size: 24px;
+  color: var(--white);
+  font-weight: 700;
+}
+
+.card img {
+  transition: opacity 0.3s ease;
+}
+
+.card img.hidden {
+  opacity: 0;
+}
+
+.card__description {
+  margin: 10px 0 0;
+  font-size: 14px;
+  color: #ffffff;
+  line-height: 1.4;
+}
+
+
+/* Estilos generales para el contenedor */
+.button-container {
+  text-align: center;
+  margin-top: 20px; /* Ajusta según tus necesidades */
+}
+
+/* Estilos del botón */
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #474dc3;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+/* Animación de levitación */
+@keyframes levitate {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-10px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Clase active para el botón */
+.button-container .button.active {
+  animation: levitate 3s ease-in-out; /* Duración de 4 segundos */
+  animation-iteration-count: 2; /* Levita 3 veces */
+}
+

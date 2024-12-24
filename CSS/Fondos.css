@@ -1,0 +1,61 @@
+/* Fondos animados para light y dark */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Tema Light */
+/* Tema Light */
+body.light-theme {
+  background: linear-gradient(45deg, #d3d3d3, #a1a1a1, #b0b0b0, #8c8c8c);
+  background-size: 400% 400%; /* Aumentamos el tamaño del gradiente para un mejor movimiento */
+  color: #333; /* Color de texto oscuro */
+  animation: lightBackground 8s ease infinite;
+}
+
+@keyframes lightBackground {
+  0% {
+    background-position: 0% 0%;
+  }
+  25% {
+    background-position: 100% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  75% {
+    background-position: 0% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+/* Tema Dark */
+body.dark-theme {
+  background: linear-gradient(45deg, #1b1b2f, #0d0d16, #1c1c32, #0d0d16); /* Colores oscuros con un toque azul-marino */
+  background-size: 400% 400%; /* Aumentamos el tamaño del gradiente para un movimiento fluido */
+  color: #fff;
+  animation: darkBackground 8s ease infinite;
+}
+
+@keyframes darkBackground {
+  0% {
+    background-position: 0% 0%;
+  }
+  25% {
+    background-position: 100% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  75% {
+    background-position: 0% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
